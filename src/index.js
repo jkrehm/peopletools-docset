@@ -59,13 +59,26 @@ const getDocs = async ([type, urls]) => {
 
     // Insert indexes into database
     if (type !== 'Other') {
+      const className =
+        type === 'Method' || type === 'Property'
+          ? $('#content')
+              .find('h1.title')
+              .text()
+              .replace(/\n/, ' ')
+              .replace(/Class (Methods|Properties)/, '')
+              .trim()
+          : '';
+
       $('.topic.pstopic2.nested1 > .title').each((index, el) => {
         const $el = $(el);
         const id = $el.attr('id');
-        const name = $el
+        const descr = $el
           .find('span')
           .first()
-          .text();
+          .text()
+          .replace(/\n/, ' ')
+          .trim();
+        const name = className ? `${className}.${descr}` : descr;
 
         insertIndex.run(name, type, url + '#' + id, err => err && console.error(err, url));
       });
