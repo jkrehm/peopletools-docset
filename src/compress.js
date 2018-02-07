@@ -1,7 +1,7 @@
 const path = require('path');
 const tar = require('tar');
 
-tar.c(
+tar.create(
   {
     cwd: `${__dirname}/..`,
     gzip: true,
