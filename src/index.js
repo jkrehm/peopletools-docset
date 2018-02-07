@@ -24,7 +24,7 @@ const insertFile = resourcesDB.prepare('insert into Files (Key, Content) values(
 let counter = 1;
 
 const getDocs = async ([type, urls]) => {
-  for (let i=0; i<urls.length; i++) {
+  for (let i = 0; i < urls.length; i++) {
     const url = urls[i];
     const uri = `https://docs.oracle.com/${url}`;
     const styleRelPath = '../'.repeat((url.match(/\//g) || []).length);
@@ -62,7 +62,10 @@ const getDocs = async ([type, urls]) => {
       $('.topic.pstopic2.nested1 > .title').each((index, el) => {
         const $el = $(el);
         const id = $el.attr('id');
-        const name = $el.find('span').first().text();
+        const name = $el
+          .find('span')
+          .first()
+          .text();
 
         insertIndex.run(name, type, url + '#' + id, err => err && console.error(err, url));
       });
@@ -82,7 +85,7 @@ const getDocs = async ([type, urls]) => {
 
     await sleep(1000);
   }
-}
+};
 
 // Add styles
 insertFilePath.run(counter, 'Documents/style.css');

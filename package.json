@@ -16,5 +16,8 @@
   },
   "scripts": {
     "build": "node src/index.js"
+  },
+  "devDependencies": {
+    "prettier": "^1.10.2"
   }
 }
