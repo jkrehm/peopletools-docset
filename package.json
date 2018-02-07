@@ -2,7 +2,7 @@
   "name": "peopletools-docset",
   "version": "1.0.0",
   "description": "Generate Dash-compatibile PeopleTools docsets",
-  "main": "src/index.js",
+  "main": "src/build.js",
   "author": "Jonathan Rehm <jonathan@rehm.me>",
   "license": "MIT",
   "dependencies": {
@@ -15,7 +15,7 @@
     "sqlite3": "^3.1.13"
   },
   "scripts": {
-    "build": "node src/index.js"
+    "build": "node src/build.js"
   },
   "devDependencies": {
     "prettier": "^1.10.2"
