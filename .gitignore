@@ -1,6 +1,7 @@
 *.db
 *.dsidx
 *.iml
+*.tgz
 
 .idea
 node_modules
