@@ -1,5 +1,6 @@
+*.db
+*.dsidx
 *.iml
-Resources.db
 
 .idea
 node_modules
