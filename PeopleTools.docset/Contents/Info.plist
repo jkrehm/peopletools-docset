@@ -11,7 +11,9 @@
 	<key>isDashDocset</key>
 	<true/>
     <key>dashIndexFilePath</key>
-    <string>https://docs.oracle.com/cd/E92519_01/pt856pbr2/eng/pt/index.html</string>
+    <string>cd/E92519_01/pt856pbr2/eng/pt/index.html</string>
+    <key>dashIndexFilePath</key>
+    <string>index.html</string>
     <key>DashDocSetFallbackURL</key>
     <string>https://docs.oracle.com/</string>
 </dict>
