@@ -6,6 +6,7 @@ const pretty = require('pretty');
 const request = require('request-promise');
 const rimraf = require('rimraf');
 const sqlite3 = require('sqlite3');
+const { resolve } = require('url');
 const { sleep } = require('./util');
 const docs = require('./docs');
 
@@ -42,6 +43,11 @@ const getDocs = async ([type, urls]) => {
 
     $('a[target="_blank"]').each((index, el) => {
       $(el).removeAttr('target');
+    });
+
+    $('a[href*=".."]').each((index, el) => {
+      const href = $(el).attr('href');
+      $(el).attr('href', resolve(uri, href));
     });
 
     // Add stylesheet
