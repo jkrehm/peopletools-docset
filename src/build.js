@@ -25,12 +25,18 @@ if (argv.resources) {
   resourcesDB.exec('delete from Files');
 }
 
-const insertIndex = docSetDB.prepare('insert into SearchIndex (name, type, path) values(?, ?, ?)');
+const insertIndex = docSetDB.prepare(
+  'insert into SearchIndex (name, type, path) values(?, ?, ?)'
+);
 
 let insertFilePath, insertFile;
 if (argv.resources) {
-  insertFilePath = resourcesDB.prepare('insert into FilePaths (FileKey, Path) values(?, ?)');
-  insertFile = resourcesDB.prepare('insert into Files (Key, Content) values(?, ?)');
+  insertFilePath = resourcesDB.prepare(
+    'insert into FilePaths (FileKey, Path) values(?, ?)'
+  );
+  insertFile = resourcesDB.prepare(
+    'insert into Files (Key, Content) values(?, ?)'
+  );
 }
 
 let counter = 1;
@@ -102,7 +108,12 @@ const getDocs = async ([type, urls]) => {
           .trim();
         const name = className ? `${className}.${descr}` : descr;
 
-        insertIndex.run(name, type, url + '#' + id, err => err && console.error(err, url));
+        insertIndex.run(
+          name,
+          type,
+          url + '#' + id,
+          err => err && console.error(err, url)
+        );
       });
     }
 
@@ -110,8 +121,16 @@ const getDocs = async ([type, urls]) => {
 
     // Insert file into database
     if (argv.resources) {
-      insertFilePath.run(counter, `Documents/${url}`, err => err && console.error(err, url));
-      insertFile.run(counter, zlib.gzipSync(html), err => err && console.error(err, url));
+      insertFilePath.run(
+        counter,
+        `Documents/${url}`,
+        err => err && console.error(err, url)
+      );
+      insertFile.run(
+        counter,
+        zlib.gzipSync(html),
+        err => err && console.error(err, url)
+      );
       counter++;
     }
 
@@ -127,7 +146,10 @@ const getDocs = async ([type, urls]) => {
 // Add styles
 if (argv.resources) {
   insertFilePath.run(counter, 'Documents/style.css');
-  insertFile.run(counter, zlib.gzipSync(fs.readFileSync(`${resources}/Documents/style.css`)));
+  insertFile.run(
+    counter,
+    zlib.gzipSync(fs.readFileSync(`${resources}/Documents/style.css`))
+  );
   counter++;
 }
 
