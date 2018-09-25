@@ -1,6 +1,7 @@
 *.db
 *.dsidx
 *.iml
+*.log
 *.tgz
 
 .idea
