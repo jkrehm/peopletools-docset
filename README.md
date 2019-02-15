@@ -22,7 +22,7 @@ copy(
       document.querySelectorAll('#ul_d65e26_tpcl a[role="treeitem"]'),
       el => el.textContent !== 'Functions by Category'
     )
-    .map(el => el.href)
+    .map(el => el.href.replace(/.*\/(cd\/.*)\?.*$/, '$1'))
 );
 ```
 
@@ -49,8 +49,9 @@ copy(
     )
     .reduce(
       (acc, el) => {
-        if (el.textContent.includes('Methods')) acc.Method.push(el.href);
-        if (el.textContent.includes('Properties')) acc.Property.push(el.href);
+        const href = el.href.replace(/.*\/(cd\/.*)\?.*$/, '$1');
+        if (el.textContent.includes('Methods')) acc.Method.push(href);
+        if (el.textContent.includes('Properties')) acc.Property.push(href);
         return acc;
       },
       { Method: [], Property: [] }
