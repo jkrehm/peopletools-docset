@@ -11,8 +11,8 @@ and do not include query strings.
 ### Functions
 
 Get the `id` of the element with "PeopleCode Built-in Functions and Language
-Constructs" in its text from Products > Development Tools > PeopleCode Language 
-Reference, then use the browser console to run JavaScript similar to the 
+Constructs" in its text from Products > Development Tools > PeopleCode Language
+Reference, then use the browser console to run JavaScript similar to the
 following:
 
 ```js
@@ -27,15 +27,16 @@ copy(
 ```
 
 Next, get the URLs for the following:
-* Meta-SQL Elements > Meta-SQL Reference
-* Meta-SQL Elements > Meta-SQL Shortcuts
-* System Variables > System Variables Reference
-* Meta-HTML > Meta-HTML Reference
+
+- Meta-SQL Elements > Meta-SQL Reference
+- Meta-SQL Elements > Meta-SQL Shortcuts
+- System Variables > System Variables Reference
+- Meta-HTML > Meta-HTML Reference
 
 ### Methods & Properties
 
 Get the `id` of the element with "PeopleCode API Reference" in its text from
-Products > Development Tools, then use the browser console to run JavaScript 
+Products > Development Tools, then use the browser console to run JavaScript
 similar to the following:
 
 ```js
@@ -66,15 +67,15 @@ Update the index page & copyright page URLs.
 ## Generating `PeopleTools.docset`
 
 **NOTE:** If running on Windows, use Windows Subsystem for Linux (WSL). If you
-do not, the `tgz` file will have permission issues when opening on a *nix 
-system. 
+do not, the `tgz` file will have permission issues when opening on a \*nix
+system.
 
 To use:
 
 1. Run `yarn install`
 2. Ensure `src/docs.json` is up-to-date
 3. Ensure `dashIndexFilePath` in `Info.plist` is up-to-date
-3. Run `yarn run generate`
+4. Run `yarn run generate`
 
 The script will produce `PeopleTools.tgz`.
 
