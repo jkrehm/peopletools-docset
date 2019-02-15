@@ -14,14 +14,14 @@
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
     "rimraf": "^2.6.2",
-    "sqlite3": "^3.1.13",
+    "sqlite3": "^4.0.6",
     "tar": "^4.3.3",
-    "yargs": "^12.0.2"
+    "yargs": "^13.2.0"
   },
   "devDependencies": {
-    "babel-eslint": "^9.0.0",
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.6.0",
-    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-prettier": "^4.0.0",
     "prettier": "^1.14.3"
   },
   "scripts": {
