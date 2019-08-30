@@ -68,9 +68,11 @@ Update the index page & copyright page URLs.
 
 Create a SQLite database in the file `PeopleTools.docset/Contents/Resources/docSet.dsidx`:
 
-`sqlite3 PeopleTools.docset/Contents/Resources/docSet.dsidx`
-`CREATE TABLE SearchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);`
-`CREATE UNIQUE INDEX anchor ON SearchIndex (name, type, path);`
+```
+sqlite3 PeopleTools.docset/Contents/Resources/docSet.dsidx
+CREATE TABLE SearchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);
+CREATE UNIQUE INDEX anchor ON SearchIndex (name, type, path);
+```
 
 (Use ctrl+d to exit sqlite.)
 
