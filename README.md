@@ -64,6 +64,18 @@ copy(
 
 Update the index page & copyright page URLs.
 
+## Create the SQLite Index
+
+Create a SQLite database in the file `PeopleTools.docset/Contents/Resources/docSet.dsidx`:
+
+```
+sqlite3 PeopleTools.docset/Contents/Resources/docSet.dsidx
+CREATE TABLE SearchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);
+CREATE UNIQUE INDEX anchor ON SearchIndex (name, type, path);
+```
+
+(Use ctrl+d to exit sqlite.)
+
 ## Generating `PeopleTools.docset`
 
 **NOTE:** If running on Windows, use Windows Subsystem for Linux (WSL). If you
